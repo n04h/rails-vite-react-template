@@ -1,15 +1,29 @@
+x-app: &app
+  build: .
+  env_file: .env
+  volumes:
+    - .:/myapp
+
 services:
-  app:
-    build: .
-    container_name: app
-    env_file: .env
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
-      - .:/myapp
+  rails:
+    <<: *app
+    container_name: rails
+    entrypoint: ./run-rails.sh
+    environment:
+      VITE_RUBY_HOST: vite
     ports:
       - "3000:3000"
     depends_on:
       - db
+
+  vite:
+    <<: *app
+    container_name: vite
+    entrypoint: ./run-vite.sh
+    environment:
+      VITE_RUBY_HOST: 0.0.0.0
+    ports:
+      - "3036:3036"
 
   db:
     image: mysql:8.0.31
@@ -18,3 +32,5 @@ services:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
       - ./docker/volumes/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
