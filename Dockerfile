@@ -1,3 +1,5 @@
+FROM node:18.12-alpine as node
+
 FROM ruby:3.1.2-alpine
 
 # ネイティブ拡張のgemをソースビルドする
@@ -6,6 +8,10 @@ ENV BUNDLE_FORCE_RUBY_PLATFORM true
 
 WORKDIR /myapp
 COPY Gemfile* /myapp
+
+COPY --from=node /usr/local/include/ /usr/local/include/
+COPY --from=node /usr/local/lib/ /usr/local/lib/
+COPY --from=node /usr/local/bin/ /usr/local/bin/
 
 RUN apk update && \
     apk upgrade && \
