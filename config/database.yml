@@ -1,14 +1,10 @@
 default: &default
   adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
-  username: root
-  password: secret
-  host: db
+  username: <%= ENV.fetch("DB_USERNAME", "root") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "secret") %>
+  host: <%= ENV.fetch("DB_HOST", "db") %>
   timeout: 5000
-
-local:
-  <<: *default
-  database: rails_template_local
 
 test:
   <<: *default
