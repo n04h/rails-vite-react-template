@@ -1,4 +1,4 @@
-# rails-template
+# rails-vite-react-template
 
 ## Environments
 
@@ -40,4 +40,8 @@ bundle exec rspec
 # Lint (Rubocop)
 bundle exec rubocop
 bundle exec rubocop -a # Auto fix
+
+# Lint (ESLint + Prettier)
+npm run lint
+npm run fix-lint
 ```
