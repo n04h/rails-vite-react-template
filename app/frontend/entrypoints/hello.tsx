@@ -1,9 +1,13 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { HelloIndex } from '../src/HelloIndex'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+const element = document.getElementById('root');
+
+if (!element) throw Error('Not found element id = "root"')
+
+ReactDOM.createRoot(element).render(
+  <StrictMode>
     <HelloIndex/>
-  </React.StrictMode>
+  </StrictMode>
 )

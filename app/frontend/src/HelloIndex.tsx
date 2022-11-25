@@ -1,7 +1,7 @@
-import React from 'react'
+import { useState } from 'react'
 
 export function HelloIndex () {
-  const [count, setCount] = React.useState(0)
+  const [count, setCount] = useState(0)
 
   return (
     <>
