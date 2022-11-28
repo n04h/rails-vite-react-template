@@ -3,6 +3,12 @@ module.exports = {
     'browser': true,
     'es2021': true,
   },
+  settings: {
+    // import の alias path に対応させる
+    'import/resolver': {
+      'typescript': [],
+    },
+  },
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -53,5 +59,8 @@ module.exports = {
         },
       }
     ],
+
+    // exportしているモジュールが一つの場合にdefaultを強制するのを無効化
+    'import/prefer-default-export': 'off',
   },
 }
