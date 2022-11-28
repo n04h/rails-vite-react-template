@@ -1,10 +1,10 @@
 import { useUserQuery } from '../api/getUser';
 
 export function GreetToUser() {
-  const userQuery = useUserQuery();
+  const { data, isLoading, isError } = useUserQuery();
 
-  if (userQuery.isLoading) return <p>読み込み中...</p>;
-  if (userQuery.isError) return <p>エラーが発生しました</p>;
+  if (isLoading) return <p>読み込み中...</p>;
+  if (isError) return <p>エラーが発生しました</p>;
 
-  return <p>Hey, {userQuery.data.name}!</p>;
+  return <p>Hey, {data.name}!</p>;
 }
