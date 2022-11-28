@@ -45,3 +45,21 @@ bundle exec rubocop -a # Auto fix
 npm run lint
 npm run fix-lint
 ```
+
+## Frontend
+
+See: <https://zenn.dev/t_keshi/articles/bulletproof-react-2022>
+
+```tree
+app/frontend/src
+├── components        # アプリケーション全体で使用できる共通コンポーネント
+├── config            # 環境変数などをエクスポートするところ
+├── features          # 機能ベースモジュール
+├── hooks             # アプリケーション全体で使用できる共通hooks
+├── lib               # ライブラリをアプリケーション用に設定して再度エクスポートしたもの
+├── providers         # アプリケーションのすべてのプロバイダー
+├── stores            # グローバルステートストア
+├── test              # テストユーティリティとモックサーバ
+├── types             # アプリケーション全体で使用される基本的な型の定義
+└── utils             # 共通のユーティリティ関数
+```
