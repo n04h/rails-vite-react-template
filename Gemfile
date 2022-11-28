@@ -27,7 +27,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Vite
-gem "vite_rails", "~> 3.0"
+gem 'vite_rails', '~> 3.0'
 
 group :test do
   gem 'capybara'
