@@ -4,6 +4,7 @@
     "fix-lint": "eslint --cache --fix 'app/frontend/**/*.{ts,tsx}' && prettier --write 'app/frontend/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
