@@ -63,4 +63,16 @@ module.exports = {
     // exportしているモジュールが一つの場合にdefaultを強制するのを無効化
     'import/prefer-default-export': 'off',
   },
+  overrides: [
+    {
+      files: [
+        './vite.config.ts',
+        './app/frontend/test/**/*',
+      ],
+      rules: {
+        // devDependenciesのライブラリを使用するときの警告を無効化
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+  ],
 }
