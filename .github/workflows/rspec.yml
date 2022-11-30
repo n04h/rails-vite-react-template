@@ -1,4 +1,4 @@
-name: ci
+name: CI - RSpec
 
 on: push
 
@@ -7,21 +7,6 @@ env:
   DB_HOST: 127.0.0.1
 
 jobs:
-  rubocop:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Run rubocop with Reviewdog
-        uses: reviewdog/action-rubocop@v2
-        with:
-          rubocop_version: gemfile
-          rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
-          reporter: github-pr-review
-
   rspec:
     runs-on: ubuntu-latest
     services:
@@ -33,7 +18,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: secret
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
