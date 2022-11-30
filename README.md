@@ -34,9 +34,6 @@ rails db:setup
 ## Commands
 
 ```console
-# Test (Rspec)
-bundle exec rspec
-
 # Lint (Rubocop)
 bundle exec rubocop
 bundle exec rubocop -a # Auto fix
@@ -44,6 +41,12 @@ bundle exec rubocop -a # Auto fix
 # Lint (ESLint + Prettier)
 npm run lint
 npm run fix-lint
+
+# Test (Rspec)
+bundle exec rspec
+
+# Test (Jest)
+npm run test
 ```
 
 ## Frontend
