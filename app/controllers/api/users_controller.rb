@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# Root
 module Api
+  # ユーザーAPI
   class UsersController < ApplicationController
     def show
-      render json: {
+      render json:  {
         id: 1,
         name: 'Alice',
         birthday: '2000-01-23'
